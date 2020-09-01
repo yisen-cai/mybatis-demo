@@ -19,6 +19,13 @@
                      resultMap="com.glancebar.mybatis.mapper.SysRoleMapper.BaseResultMap"/>
     </resultMap>
 
+    <resultMap id="UserRoleResultMapAnotherWay" type="com.glancebar.mybatis.entity.SysUser" extends="BaseResultMap">
+        <association property="role" column="{pkId=role_id}"
+                     fetchType="lazy"
+                     select="com.glancebar.mybatis.mapper.SysRoleMapper.selectRoleById"/>
+    </resultMap>
+
+    <!-- One to One -->
     <select id="selectUserAndRoleByUserId" parameterType="long" resultMap="UserRoleResultMap">
         select u.pk_id,
                u.username,
@@ -109,5 +116,21 @@
         from sys_user
         where pk_id = #{userId}
           and is_enabled = #{isEnabled}
+    </select>
+
+    <select id="selectUserAndRoleByUserIdInAnotherWay" resultMap="UserRoleResultMapAnotherWay">
+        select u.pk_id,
+               u.username,
+               u.description,
+               u.create_time,
+               u.email,
+               u.avatar,
+               u.is_deleted,
+               u.is_enabled,
+               u.description,
+               ur.role_id role_id
+        from sys_user u
+                 inner join sys_user_role ur on u.pk_id = ur.user_id
+        where u.pk_id = #{userId}
     </select>
 </mapper>

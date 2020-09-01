@@ -22,6 +22,8 @@ public interface SysUserMapper {
 
     SysUser selectUserAndRoleByUserId(Long pkId);
 
+    SysUser selectUserAndRoleByUserIdInAnotherWay(Long pkId);
+
     int updateByPrimaryKey(SysUser record);
 
     //   Query with multiple params

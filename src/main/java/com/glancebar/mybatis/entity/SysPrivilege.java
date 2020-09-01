@@ -1,6 +1,8 @@
 package com.glancebar.mybatis.entity;
 
-public class SysPrivilege {
+import java.io.Serializable;
+
+public class SysPrivilege implements Serializable {
     private Long pkId;
 
     private String privilegeName;

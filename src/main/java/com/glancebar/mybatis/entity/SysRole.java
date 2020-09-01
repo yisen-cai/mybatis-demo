@@ -1,8 +1,9 @@
 package com.glancebar.mybatis.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SysRole {
+public class SysRole implements Serializable {
     private Long pkId;
 
     private String roleName;

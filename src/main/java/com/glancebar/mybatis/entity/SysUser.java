@@ -1,8 +1,12 @@
 package com.glancebar.mybatis.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class SysUser {
+@JsonIgnoreProperties(value = { "handler" })
+public class SysUser implements Serializable {
     private Long pkId;
 
     private String username;
