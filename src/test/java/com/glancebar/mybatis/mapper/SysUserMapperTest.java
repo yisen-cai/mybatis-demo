@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Assert;
 
 import java.util.List;
 
@@ -37,5 +36,19 @@ class SysUserMapperTest {
 
     @Test
     void updateByPrimaryKey() {
+    }
+
+    @Test
+    void selectByUserIdAndIsEnabled() {
+        SysUser user = sysUserMapper.selectByUserIdAndIsEnabled(1L, true);
+        System.out.println(user);
+        Assertions.assertNotNull(user);
+    }
+
+    @Test
+    void selectUserAndRoleByUserId() {
+        SysUser user = sysUserMapper.selectUserAndRoleByUserId(2L);
+        System.out.println(user);
+        Assertions.assertNotNull(user.getRole());
     }
 }

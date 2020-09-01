@@ -52,4 +52,15 @@ public class SysRole {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+    @Override
+    public String toString() {
+        return "SysRole{" +
+                "pkId=" + pkId +
+                ", roleName='" + roleName + '\'' +
+                ", isEnabled=" + isEnabled +
+                ", createBy=" + createBy +
+                ", createTime=" + createTime +
+                '}';
+    }
 }

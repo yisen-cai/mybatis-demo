@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -18,8 +18,9 @@
     <properties>
         <java.version>1.8</java.version>
         <dao.target.dir>src/main/java</dao.target.dir>
-        <mybatis.generator.configurationFile>src/main/resources/mybatis/generatorConfig.xml</mybatis.generator.configurationFile>
-        <mybatis.generator.overwrite>true</mybatis.generator.overwrite>
+        <mybatis.generator.configurationFile>src/main/resources/mybatis/generatorConfig.xml
+        </mybatis.generator.configurationFile>
+        <mybatis.generator.overwrite>false</mybatis.generator.overwrite>
     </properties>
 
     <dependencies>
@@ -34,11 +35,11 @@
             <artifactId>mybatis-generator-core</artifactId>
             <version>1.3.3</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.h2database</groupId>-->
-<!--            <artifactId>h2</artifactId>-->
-<!--            <scope>runtime</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.h2database</groupId>-->
+        <!--            <artifactId>h2</artifactId>-->
+        <!--            <scope>runtime</scope>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -65,17 +66,18 @@
     </dependencies>
 
     <build>
-<!--  if mapper file is putted under src, add those lines below.-->
-<!--        <resources>-->
-<!--            <resource>-->
-<!--                <directory>src/main/java</directory>-->
-<!--                <includes>-->
-<!--                    <include>**/*.xml</include>-->
-<!--                </includes>-->
-<!--            </resource>-->
-<!--        </resources>-->
+        <!--  if mapper file is putted under src, add those lines below.-->
+        <!--        <resources>-->
+        <!--            <resource>-->
+        <!--                <directory>src/main/java</directory>-->
+        <!--                <includes>-->
+        <!--                    <include>**/*.xml</include>-->
+        <!--                </includes>-->
+        <!--            </resource>-->
+        <!--        </resources>-->
         <plugins>
             <plugin>
+                <!-- use $ mvn mybatis-generator:generate to generate codes -->
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>1.4.0</version>

@@ -30,4 +30,13 @@ public class SysPrivilege {
     public void setPrivilegeUrl(String privilegeUrl) {
         this.privilegeUrl = privilegeUrl == null ? null : privilegeUrl.trim();
     }
+
+    @Override
+    public String toString() {
+        return "SysPrivilege{" +
+                "pkId=" + pkId +
+                ", privilegeName='" + privilegeName + '\'' +
+                ", privilegeUrl='" + privilegeUrl + '\'' +
+                '}';
+    }
 }

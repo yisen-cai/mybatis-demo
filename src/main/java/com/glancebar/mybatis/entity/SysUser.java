@@ -15,6 +15,16 @@ public class SysUser {
 
     private String avatar;
 
+    public SysRole getRole() {
+        return role;
+    }
+
+    public void setRole(SysRole role) {
+        this.role = role;
+    }
+
+    private SysRole role;
+
     private Date createTime;
 
     private Boolean isEnabled;
@@ -91,5 +101,21 @@ public class SysUser {
 
     public void setIsDeleted(Boolean isDeleted) {
         this.isDeleted = isDeleted;
+    }
+
+    @Override
+    public String toString() {
+        return "SysUser{" +
+                "pkId=" + pkId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", description='" + description + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", role=" + role +
+                ", createTime=" + createTime +
+                ", isEnabled=" + isEnabled +
+                ", isDeleted=" + isDeleted +
+                '}';
     }
 }
