@@ -1,7 +1,10 @@
 package com.glancebar.mybatis.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 
+@JsonIgnoreProperties(value = {"handler"})
 public class SysPrivilege implements Serializable {
     private Long pkId;
 

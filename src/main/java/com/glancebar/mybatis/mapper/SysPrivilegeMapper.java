@@ -32,6 +32,13 @@ public interface SysPrivilegeMapper {
 
     SysPrivilege selectByPrimaryKey(Long pkId);
 
+    /**
+     * 用于在角色详情的嵌套查询，懒加载方式查询
+     * @param roleId
+     * @return
+     */
+    List<SysPrivilege> selectPrivilegesByRoleId(Long roleId);
+
     List<SysPrivilege> selectAll();
 
     int updateByPrimaryKey(SysPrivilege record);

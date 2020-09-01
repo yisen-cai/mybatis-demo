@@ -1,8 +1,12 @@
 package com.glancebar.mybatis.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+@JsonIgnoreProperties(value = {"handler"})
 public class SysRole implements Serializable {
     private Long pkId;
 
@@ -13,6 +17,16 @@ public class SysRole implements Serializable {
     private Long createBy;
 
     private Date createTime;
+
+    private List<SysPrivilege> privileges;
+
+    public List<SysPrivilege> getPrivileges() {
+        return privileges;
+    }
+
+    public void setPrivileges(List<SysPrivilege> privileges) {
+        this.privileges = privileges;
+    }
 
     public Long getPkId() {
         return pkId;

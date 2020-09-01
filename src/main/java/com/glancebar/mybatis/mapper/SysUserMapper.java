@@ -20,9 +20,11 @@ public interface SysUserMapper {
 
     List<SysUser> selectAll();
 
-    SysUser selectUserAndRoleByUserId(Long pkId);
+    SysUser selectUserRoleListByUserId(Long pkId);
 
-    SysUser selectUserAndRoleByUserIdInAnotherWay(Long pkId);
+//    SysUser selectUserAndRoleByUserId(Long pkId);
+//
+//    SysUser selectUserAndRoleByUserIdInAnotherWay(Long pkId);
 
     int updateByPrimaryKey(SysUser record);
 

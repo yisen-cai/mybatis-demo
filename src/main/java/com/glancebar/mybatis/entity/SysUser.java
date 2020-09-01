@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-@JsonIgnoreProperties(value = { "handler" })
+@JsonIgnoreProperties(value = {"handler"})
 public class SysUser implements Serializable {
     private Long pkId;
 
@@ -18,22 +19,18 @@ public class SysUser implements Serializable {
     private String description;
 
     private String avatar;
-
-    public SysRole getRole() {
-        return role;
-    }
-
-    public void setRole(SysRole role) {
-        this.role = role;
-    }
-
-    private SysRole role;
-
+    private List<SysRole> roles;
     private Date createTime;
-
     private Boolean isEnabled;
-
     private Boolean isDeleted;
+
+    public List<SysRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<SysRole> roles) {
+        this.roles = roles;
+    }
 
     public Long getPkId() {
         return pkId;
@@ -116,7 +113,7 @@ public class SysUser implements Serializable {
                 ", email='" + email + '\'' +
                 ", description='" + description + '\'' +
                 ", avatar='" + avatar + '\'' +
-                ", role=" + role +
+                ", role=" + roles +
                 ", createTime=" + createTime +
                 ", isEnabled=" + isEnabled +
                 ", isDeleted=" + isDeleted +
