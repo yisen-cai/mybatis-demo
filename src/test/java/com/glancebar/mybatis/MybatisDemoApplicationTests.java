@@ -1,4 +1,4 @@
-package com.glancebar.mybatisdemo;
+package com.glancebar.mybatis;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glancebar.mybatis.mapper.SysPrivilegeMapper">
+  <resultMap id="BaseResultMap" type="com.glancebar.mybatis.entity.SysPrivilege">
+    <id column="pk_id" jdbcType="BIGINT" property="pkId" />
+    <result column="privilege_name" jdbcType="VARCHAR" property="privilegeName" />
+    <result column="privilege_url" jdbcType="VARCHAR" property="privilegeUrl" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_privilege
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.glancebar.mybatis.entity.SysPrivilege">
+    <selectKey keyProperty="pkId" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sys_privilege (pk_id, privilege_name, privilege_url
+      )
+    values (#{pkId,jdbcType=BIGINT}, #{privilegeName,jdbcType=VARCHAR}, #{privilegeUrl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.glancebar.mybatis.entity.SysPrivilege">
+    update sys_privilege
+    set privilege_name = #{privilegeName,jdbcType=VARCHAR},
+      privilege_url = #{privilegeUrl,jdbcType=VARCHAR}
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select pk_id, privilege_name, privilege_url
+    from sys_privilege
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select pk_id, privilege_name, privilege_url
+    from sys_privilege
+  </select>
+</mapper>

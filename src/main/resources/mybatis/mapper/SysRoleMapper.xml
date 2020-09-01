@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glancebar.mybatis.mapper.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.glancebar.mybatis.entity.SysRole">
+    <id column="pk_id" jdbcType="BIGINT" property="pkId" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="is_enabled" jdbcType="BIT" property="isEnabled" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_role
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.glancebar.mybatis.entity.SysRole">
+    <selectKey keyProperty="pkId" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sys_role (pk_id, role_name, is_enabled, 
+      create_by, create_time)
+    values (#{pkId,jdbcType=BIGINT}, #{roleName,jdbcType=VARCHAR}, #{isEnabled,jdbcType=BIT}, 
+      #{createBy,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.glancebar.mybatis.entity.SysRole">
+    update sys_role
+    set role_name = #{roleName,jdbcType=VARCHAR},
+      is_enabled = #{isEnabled,jdbcType=BIT},
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select pk_id, role_name, is_enabled, create_by, create_time
+    from sys_role
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select pk_id, role_name, is_enabled, create_by, create_time
+    from sys_role
+  </select>
+</mapper>
