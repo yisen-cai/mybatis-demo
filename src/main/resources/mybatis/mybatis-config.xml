@@ -11,4 +11,9 @@
         <!-- Use those methods trigger lazy loading -->
         <!-- <setting name="lazyLoadTriggerMethods" value="equals, clone, toString, hashCode"/>-->
     </settings>
+
+    <typeHandlers>
+        <typeHandler javaType="com.glancebar.mybatis.enums.Enabled"
+                     handler="com.glancebar.mybatis.utils.EnabledTypeHandler"/>
+    </typeHandlers>
 </configuration>

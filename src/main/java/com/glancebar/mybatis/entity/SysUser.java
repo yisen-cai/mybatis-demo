@@ -1,6 +1,7 @@
 package com.glancebar.mybatis.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.glancebar.mybatis.enums.Enabled;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,8 +21,10 @@ public class SysUser implements Serializable {
 
     private String avatar;
     private List<SysRole> roles;
+
     private Date createTime;
-    private Boolean isEnabled;
+
+    private Enabled isEnabled;
     private Boolean isDeleted;
 
     public List<SysRole> getRoles() {
@@ -88,12 +91,20 @@ public class SysUser implements Serializable {
         this.createTime = createTime;
     }
 
-    public Boolean getIsEnabled() {
+    public Enabled getIsEnabled() {
         return isEnabled;
     }
 
-    public void setIsEnabled(Boolean isEnabled) {
+    public void setIsEnabled(Enabled isEnabled) {
         this.isEnabled = isEnabled;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
     }
 
     public Boolean getIsDeleted() {
