@@ -3,6 +3,7 @@ package com.glancebar.mybatis.mapper;
 import com.glancebar.mybatis.entity.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +11,6 @@ import java.util.Collection;
 import java.util.List;
 
 @Mapper
-@Component
 public interface SysUserMapper {
     int deleteByPrimaryKey(Long pkId);
 
@@ -19,6 +19,8 @@ public interface SysUserMapper {
     SysUser selectByPrimaryKey(Long pkId);
 
     List<SysUser> selectAll();
+
+    List<SysUser> selectAll(RowBounds rowBounds);
 
     SysUser selectUserRoleListByUserId(Long pkId);
 

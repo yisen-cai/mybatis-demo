@@ -8,6 +8,10 @@ import java.util.List;
 
 @JsonIgnoreProperties(value = {"handler"})
 public class SysRole implements Serializable {
+
+    private static final long serialVersionUID = 8421229840090122958L;
+
+
     private Long pkId;
 
     private String roleName;

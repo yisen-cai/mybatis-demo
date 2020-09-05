@@ -6,6 +6,9 @@ import java.io.Serializable;
 
 @JsonIgnoreProperties(value = {"handler"})
 public class SysPrivilege implements Serializable {
+
+    private static final long serialVersionUID = -719628748346979669L;
+
     private Long pkId;
 
     private String privilegeName;

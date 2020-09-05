@@ -9,6 +9,7 @@ import java.util.List;
 
 @JsonIgnoreProperties(value = {"handler"})
 public class SysUser implements Serializable {
+
     private Long pkId;
 
     private String username;
