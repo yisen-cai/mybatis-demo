@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Collection;
 import java.util.List;
 
-@Mapper
+@Repository
 public interface SysUserMapper {
     int deleteByPrimaryKey(Long pkId);
 

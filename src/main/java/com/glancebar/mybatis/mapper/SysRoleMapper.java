@@ -5,10 +5,11 @@ import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.CacheNamespaceRef;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.cache.decorators.FifoCache;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 //@CacheNamespace(
 //        eviction = FifoCache.class,
 //        flushInterval = 60000,
