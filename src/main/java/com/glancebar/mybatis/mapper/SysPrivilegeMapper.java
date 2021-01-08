@@ -3,11 +3,11 @@ package com.glancebar.mybatis.mapper;
 import com.glancebar.mybatis.entity.SysPrivilege;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
-@Component
+@Repository
 public interface SysPrivilegeMapper {
     int deleteByPrimaryKey(Long pkId);
 
@@ -31,6 +31,13 @@ public interface SysPrivilegeMapper {
     int insertAndReturnAutoIncrementId(SysPrivilege sysPrivilege);
 
     SysPrivilege selectByPrimaryKey(Long pkId);
+
+    /**
+     * 用于在角色详情的嵌套查询，懒加载方式查询
+     * @param roleId
+     * @return
+     */
+    List<SysPrivilege> selectPrivilegesByRoleId(Long roleId);
 
     List<SysPrivilege> selectAll();
 

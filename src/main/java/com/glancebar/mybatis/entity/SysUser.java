@@ -1,12 +1,15 @@
 package com.glancebar.mybatis.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.glancebar.mybatis.enums.Enabled;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-@JsonIgnoreProperties(value = { "handler" })
+@JsonIgnoreProperties(value = {"handler"})
 public class SysUser implements Serializable {
+
     private Long pkId;
 
     private String username;
@@ -18,22 +21,20 @@ public class SysUser implements Serializable {
     private String description;
 
     private String avatar;
-
-    public SysRole getRole() {
-        return role;
-    }
-
-    public void setRole(SysRole role) {
-        this.role = role;
-    }
-
-    private SysRole role;
+    private List<SysRole> roles;
 
     private Date createTime;
 
-    private Boolean isEnabled;
-
+    private Enabled isEnabled;
     private Boolean isDeleted;
+
+    public List<SysRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<SysRole> roles) {
+        this.roles = roles;
+    }
 
     public Long getPkId() {
         return pkId;
@@ -91,12 +92,20 @@ public class SysUser implements Serializable {
         this.createTime = createTime;
     }
 
-    public Boolean getIsEnabled() {
+    public Enabled getIsEnabled() {
         return isEnabled;
     }
 
-    public void setIsEnabled(Boolean isEnabled) {
+    public void setIsEnabled(Enabled isEnabled) {
         this.isEnabled = isEnabled;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
     }
 
     public Boolean getIsDeleted() {
@@ -116,7 +125,7 @@ public class SysUser implements Serializable {
                 ", email='" + email + '\'' +
                 ", description='" + description + '\'' +
                 ", avatar='" + avatar + '\'' +
-                ", role=" + role +
+                ", role=" + roles +
                 ", createTime=" + createTime +
                 ", isEnabled=" + isEnabled +
                 ", isDeleted=" + isDeleted +

@@ -15,9 +15,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public SysUser getUser(Long userId) {
-        SysUser user = sysUserMapper.selectUserAndRoleByUserIdInAnotherWay(userId);
-        System.out.println("Invoke user.getRole()..........");
-        System.out.println(user.getRole());
+        SysUser user = sysUserMapper.selectUserRoleListByUserId(userId);
+//        System.out.println("Invoke user.getRole()..........");
+//        System.out.println(user.getRole());
         return user;
     }
 }

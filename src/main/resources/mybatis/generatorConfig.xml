@@ -3,51 +3,51 @@
         "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
-        <property name="beginningDelimiter" value="`"/>
-        <property name="endingDelimiter" value="`"/>
-        <property name="javaFileEncoding" value="UTF-8"/>
+  <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+    <property name="beginningDelimiter" value="`"/>
+    <property name="endingDelimiter" value="`"/>
+    <property name="javaFileEncoding" value="UTF-8"/>
 
-        <!-- entity comments -->
-        <!-- https://mybatis.org/generator/configreference/commentGenerator.html -->
-        <commentGenerator>
-            <property name="suppressAllComments" value="true"/>
-        </commentGenerator>
+    <!-- entity comments -->
+    <!-- https://mybatis.org/generator/configreference/commentGenerator.html -->
+    <commentGenerator>
+      <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
 
-        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://yisen614.top:3306/db_mybatis"
-                        userId="root"
-                        password="your-own-password">
-        </jdbcConnection>
+    <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                    connectionURL="jdbc:mysql://yisen614.top:3306/db_mybatis"
+                    userId="root"
+                    password="your-own-password">
+    </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.glancebar.mybatis.entity"
-                            targetProject="src/main/java">
-            <property name="trimStrings" value="true"/>
-        </javaModelGenerator>
+    <javaModelGenerator targetPackage="com.glancebar.mybatis.entity"
+                        targetProject="src/main/java">
+      <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mapper"
-                         targetProject="src/main/resources/mybatis">
+    <sqlMapGenerator targetPackage="mapper"
+                     targetProject="src/main/resources/mybatis">
 
-        </sqlMapGenerator>
+    </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.glancebar.mybatis.mapper"
-                             targetProject="src/main/java">
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.glancebar.mybatis.mapper"
+                         targetProject="src/main/java">
 
-        </javaClientGenerator>
+    </javaClientGenerator>
 
-        <table tableName="sys_user">
-            <!-- Specify selectKey or insertKey -->
-            <generatedKey column="pk_id" sqlStatement="MySql"/>
-        </table>
+    <table tableName="sys_user">
+      <!-- Specify selectKey or insertKey -->
+      <generatedKey column="pk_id" sqlStatement="MySql"/>
+    </table>
 
-        <table tableName="sys_role">
-            <!-- Specify selectKey or insertKey -->
-            <generatedKey column="pk_id" sqlStatement="MySql"/>
-        </table>
+    <table tableName="sys_role">
+      <!-- Specify selectKey or insertKey -->
+      <generatedKey column="pk_id" sqlStatement="MySql"/>
+    </table>
 
-        <table tableName="sys_privilege">
-            <!-- Specify selectKey or insertKey -->
-            <generatedKey column="pk_id" sqlStatement="MySql"/>
-        </table>
-    </context>
+    <table tableName="sys_privilege">
+      <!-- Specify selectKey or insertKey -->
+      <generatedKey column="pk_id" sqlStatement="MySql"/>
+    </table>
+  </context>
 </generatorConfiguration>

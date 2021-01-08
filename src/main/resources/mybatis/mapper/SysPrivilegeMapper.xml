@@ -26,13 +26,25 @@
         privilege_url  = #{privilegeUrl,jdbcType=VARCHAR}
     where pk_id = #{pkId,jdbcType=BIGINT}
   </update>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select pk_id, privilege_name, privilege_url
     from sys_privilege
     where pk_id = #{pkId,jdbcType=BIGINT}
   </select>
+
+
   <select id="selectAll" resultMap="BaseResultMap">
     select pk_id, privilege_name, privilege_url
     from sys_privilege
+  </select>
+
+  <select id="selectPrivilegesByRoleId" resultMap="BaseResultMap">
+    select p.pk_id,
+           privilege_name,
+           privilege_url
+    from sys_privilege p
+           inner join sys_role_privilege rp on p.pk_id = rp.privilege_id
+    where rp.role_id = #{roleId}
   </select>
 </mapper>

@@ -3,12 +3,24 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <settings>
-        <!-- 打印查询语句 -->
-        <setting name="logImpl" value="STDOUT_LOGGING"/>
-        <setting name="mapUnderscoreToCamelCase" value="true"/>
-        <setting name="aggressiveLazyLoading" value="false"/>
-        <!-- Use those methods trigger lazy loading -->
-        <!-- <setting name="lazyLoadTriggerMethods" value="equals, clone, toString, hashCode"/>-->
-    </settings>
+  <settings>
+    <!-- 打印查询语句 -->
+    <setting name="logImpl" value="STDOUT_LOGGING"/>
+    <!--        <setting name="mapUnderscoreToCamelCase" value="true"/>-->
+    <setting name="aggressiveLazyLoading" value="false"/>
+    <!-- Use those methods trigger lazy loading -->
+    <!-- <setting name="lazyLoadTriggerMethods" value="equals, clone, toString, hashCode"/>-->
+  </settings>
+
+  <typeHandlers>
+    <typeHandler javaType="com.glancebar.mybatis.enums.Enabled"
+                 handler="com.glancebar.mybatis.utils.EnabledTypeHandler"/>
+  </typeHandlers>
+
+  <plugins>
+    <plugin interceptor="com.glancebar.mybatis.plugin.CameHumpInterceptor"/>
+    <plugin interceptor="com.glancebar.mybatis.plugin.PageInterceptor">
+      <property name="dialect" value="com.glancebar.mybatis.plugin.MySqlDialect"/>
+    </plugin>
+  </plugins>
 </configuration>
