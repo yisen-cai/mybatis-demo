@@ -1,10 +1,12 @@
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
   config-location: classpath:mybatis/mybatis-config.xml
-  type-aliases-package: com.glancebar.mybatisdemo
+  type-aliases-package: com.glancebar.mybatis
 
 spring:
   datasource:
-    url: jdbc:mysql://yisen614.top:3306/db_mybatis?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://glancebar.com:3306/db_mybatis?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: your-own-password
+server:
+  port: 8080

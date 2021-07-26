@@ -15,7 +15,7 @@
     </commentGenerator>
 
     <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                    connectionURL="jdbc:mysql://yisen614.top:3306/db_mybatis"
+                    connectionURL="jdbc:mysql://glancebar.com:3306/db_mybatis"
                     userId="root"
                     password="your-own-password">
     </jdbcConnection>
@@ -36,16 +36,6 @@
     </javaClientGenerator>
 
     <table tableName="sys_user">
-      <!-- Specify selectKey or insertKey -->
-      <generatedKey column="pk_id" sqlStatement="MySql"/>
-    </table>
-
-    <table tableName="sys_role">
-      <!-- Specify selectKey or insertKey -->
-      <generatedKey column="pk_id" sqlStatement="MySql"/>
-    </table>
-
-    <table tableName="sys_privilege">
       <!-- Specify selectKey or insertKey -->
       <generatedKey column="pk_id" sqlStatement="MySql"/>
     </table>

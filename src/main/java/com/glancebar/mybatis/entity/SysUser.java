@@ -1,15 +1,8 @@
 package com.glancebar.mybatis.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.glancebar.mybatis.enums.Enabled;
-
-import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-@JsonIgnoreProperties(value = {"handler"})
-public class SysUser implements Serializable {
-
+public class SysUser {
     private Long pkId;
 
     private String username;
@@ -21,20 +14,12 @@ public class SysUser implements Serializable {
     private String description;
 
     private String avatar;
-    private List<SysRole> roles;
 
     private Date createTime;
 
-    private Enabled isEnabled;
-    private Boolean isDeleted;
+    private Byte isEnabled;
 
-    public List<SysRole> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<SysRole> roles) {
-        this.roles = roles;
-    }
+    private Byte isDeleted;
 
     public Long getPkId() {
         return pkId;
@@ -92,43 +77,19 @@ public class SysUser implements Serializable {
         this.createTime = createTime;
     }
 
-    public Enabled getIsEnabled() {
+    public Byte getIsEnabled() {
         return isEnabled;
     }
 
-    public void setIsEnabled(Enabled isEnabled) {
+    public void setIsEnabled(Byte isEnabled) {
         this.isEnabled = isEnabled;
     }
 
-    public Boolean getDeleted() {
+    public Byte getIsDeleted() {
         return isDeleted;
     }
 
-    public void setDeleted(Boolean deleted) {
-        isDeleted = deleted;
-    }
-
-    public Boolean getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(Boolean isDeleted) {
+    public void setIsDeleted(Byte isDeleted) {
         this.isDeleted = isDeleted;
-    }
-
-    @Override
-    public String toString() {
-        return "SysUser{" +
-                "pkId=" + pkId +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", description='" + description + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", role=" + roles +
-                ", createTime=" + createTime +
-                ", isEnabled=" + isEnabled +
-                ", isDeleted=" + isDeleted +
-                '}';
     }
 }

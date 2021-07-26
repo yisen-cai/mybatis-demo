@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.glancebar.mybatis.mapper", annotationClass = Repository.class)
-public class MybatisDemoApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(MybatisDemoApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
