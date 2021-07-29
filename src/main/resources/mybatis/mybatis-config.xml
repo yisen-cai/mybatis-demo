@@ -13,14 +13,8 @@
   </settings>
 
   <typeHandlers>
-    <typeHandler javaType="com.glancebar.mybatis.enums.Enabled"
-                 handler="com.glancebar.mybatis.utils.EnabledTypeHandler"/>
+    <typeHandler javaType="com.glancebar.mybatis.enums.GenderEnum"
+                 handler="com.glancebar.mybatis.utils.GenderEnumTypeHandler"/>
   </typeHandlers>
 
-  <plugins>
-    <plugin interceptor="com.glancebar.mybatis.plugin.CameHumpInterceptor"/>
-    <plugin interceptor="com.glancebar.mybatis.plugin.PageInterceptor">
-      <property name="dialect" value="com.glancebar.mybatis.plugin.MySqlDialect"/>
-    </plugin>
-  </plugins>
 </configuration>

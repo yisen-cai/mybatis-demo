@@ -1,12 +1,21 @@
 package com.glancebar.mybatis.enums;
 
-public enum Enabled {
-    ENABLED(1),
-    DISABLED(0);
+/**
+ * @author YISHEN CAI
+ */
+public enum GenderEnum {
+
+    /**
+     * 性别
+     */
+    MALE(0),
+    FEMALE(1),
+    UNKNOWN(2),
+    ;
 
     private final Integer value;
 
-    Enabled(Integer value) {
+    GenderEnum(Integer value) {
         this.value = value;
     }
 
