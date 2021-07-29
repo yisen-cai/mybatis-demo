@@ -14,6 +14,8 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @SpringBootApplication
@@ -28,17 +30,20 @@ public class Application {
 
     @Bean
     CommandLineRunner demo(UserMapper userMapper) {
-        User user = new User("https://staff-test.oss-cn-beijing.aliyuncs.com/avatar/avatar.png",
-                "user",
-                "nickname",
-                GenderEnum.MALE,
-                new Date(System.currentTimeMillis()),
-                "comment",
-                new Timestamp(System.currentTimeMillis()),
-                new Timestamp(System.currentTimeMillis()),
-                false,
-                true);
-        long id = userMapper.insert(user);
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            users.add(new User("https://staff-test.oss-cn-beijing.aliyuncs.com/avatar/avatar.png",
+                    "User" + i,
+                    "Nickname" + i,
+                    GenderEnum.MALE,
+                    new Date(System.currentTimeMillis()),
+                    "comment" + i,
+                    new Timestamp(System.currentTimeMillis()),
+                    new Timestamp(System.currentTimeMillis()),
+                    false,
+                    true));
+        }
+        users.forEach(userMapper::insertUser);
         userMapper.findAll().forEach(System.out::println);
         return args -> {
             logger.info("Hello, Spring!");
