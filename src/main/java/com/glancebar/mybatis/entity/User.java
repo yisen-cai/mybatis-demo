@@ -22,6 +22,9 @@ public class User {
     private boolean deleted;
     private boolean active;
 
+    public User() {
+    }
+
     public User(Long id, String avatar, String username, String nickname, GenderEnum gender, Date birthday, String userComment, Timestamp createTime, Timestamp updateTime, boolean deleted, boolean active) {
         this.id = id;
         this.avatar = avatar;

@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class GenderEnumTypeHandler implements TypeHandler<GenderEnum> {
     // 使用一个Map来存放所有的映射，方便转换
-    private final Map<Integer, GenderEnum> genderEnumMap = new HashMap<>();
+    public static final Map<Integer, GenderEnum> genderEnumMap = new HashMap<>();
 
     public GenderEnumTypeHandler() {
         for (GenderEnum genderEnum : GenderEnum.values()) {

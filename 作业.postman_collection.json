@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "4c214e26-fc0f-4bbb-b38c-1d07fbd0e2a8",
+		"name": "作业",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/users",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "active",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "deleted",
+							"value": "0",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER}}/users?query=Ma",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "active",
+									"value": "false",
+									"disabled": true
+								},
+								{
+									"key": "query",
+									"value": "Ma"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 29 Jul 2021 12:53:24 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"total\": 3,\n    \"hasNext\": false,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"avatar\": \"https://staff-test.oss-cn-beijing.aliyuncs.com/avatar/avatar.png\",\n            \"username\": \"Mary1\",\n            \"nickname\": \"Mary1\",\n            \"gender\": 1,\n            \"birthday\": 978192000000,\n            \"userComment\": \"any\",\n            \"createTime\": 1627563194979,\n            \"updateTime\": 1627563194979,\n            \"deleted\": false,\n            \"active\": true\n        },\n        {\n            \"id\": 2,\n            \"avatar\": \"https://staff-test.oss-cn-beijing.aliyuncs.com/avatar/avatar.png\",\n            \"username\": \"Mary2\",\n            \"nickname\": \"Mary2\",\n            \"gender\": 1,\n            \"birthday\": 978192000000,\n            \"userComment\": \"any\",\n            \"createTime\": 1627563194979,\n            \"updateTime\": 1627563194979,\n            \"deleted\": false,\n            \"active\": true\n        },\n        {\n            \"id\": 3,\n            \"avatar\": \"https://staff-test.oss-cn-beijing.aliyuncs.com/avatar/avatar.png\",\n            \"username\": \"Mary3\",\n            \"nickname\": \"Mary3\",\n            \"gender\": 1,\n            \"birthday\": 978192000000,\n            \"userComment\": \"any\",\n            \"createTime\": 1627563194979,\n            \"updateTime\": 1627563194979,\n            \"deleted\": false,\n            \"active\": true\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"avatar\": \"https://staff-test.oss-cn-beijing.aliyuncs.com/avatar/avatar.png\",\n    \"username\": \"new user\",\n    \"nickname\": \"new user\",\n    \"gender\": 2,\n    \"birthday\": 1627488000000,\n    \"userComment\": \"comment19\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER}}/users",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"avatar\": \"https://staff-test.oss-cn-beijing.aliyuncs.com/avatar/avatar.png\",\n    \"username\": \"new user\",\n    \"nickname\": \"new user\",\n    \"gender\": 2,\n    \"birthday\": 1627488000000,\n    \"userComment\": \"comment19\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/users",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Location",
+							"value": "/api/users/24"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 29 Jul 2021 12:53:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"用户创建成功\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get User by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/users/6",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"users",
+						"6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get User by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER}}/users/10",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"users",
+								"10"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 29 Jul 2021 12:54:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 10,\n    \"avatar\": \"https://staff-test.oss-cn-beijing.aliyuncs.com/avatar/avatar.png\",\n    \"username\": \"User6\",\n    \"nickname\": \"Nickname6\",\n    \"gender\": 0,\n    \"birthday\": 1627488000000,\n    \"userComment\": \"Comment6\",\n    \"createTime\": 1627563195567,\n    \"updateTime\": 1627563195567,\n    \"deleted\": false,\n    \"active\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/users/4",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"users",
+						"4"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER}}/users/4",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"users",
+								"4"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 29 Jul 2021 12:54:26 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"avatar\": \"https://staff-test.oss-cn-beijing.aliyuncs.com/avatar/avatar.png\",\n    \"username\": \"new name\",\n    \"nickname\": \"Mary1\",\n    \"gender\": 1,\n    \"userComment\": \"any\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER}}/users/6",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"users",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "SERVER",
+			"value": "127.0.0.1:8080"
+		}
+	]
+}

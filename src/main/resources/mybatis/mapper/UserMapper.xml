@@ -8,11 +8,11 @@
         <result column="gender" jdbcType="TINYINT" property="gender"/>
         <result column="birthday" jdbcType="DATE" property="birthday"/>
         <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
+        <result column="user_comment" jdbcType="VARCHAR" property="userComment"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
         <result column="active" jdbcType="TINYINT" property="active"/>
         <result column="deleted" jdbcType="TINYINT" property="deleted"/>
-        <result column="user_comment" jdbcType="VARCHAR" property="userComment"/>
     </resultMap>
 
 
@@ -23,5 +23,30 @@
                 #{active}, #{createTime}, #{updateTime})
     </insert>
 
+    <select id="findAllByQuery" resultMap="BaseResultMap">
+        select *
+        from user
+        where active = #{active}
+        <if test="query != null and query != ''">and username like concat(#{param1}, '%')</if>
+        and deleted = #{deleted} limit #{offset}, #{size}
+    </select>
 
+    <select id="countAllByQuery" resultType="long">
+        select count(*)
+        from user
+        where active = #{active}
+        <if test="query != null and query != ''">and username like concat(#{param1}, '%')</if>
+        and deleted = #{deleted}
+    </select>
+
+    <update id="updateUserById" parameterType="com.glancebar.mybatis.entity.User">
+        update user
+        set username     = #{username},
+            nickname     = #{nickname},
+            gender       = #{gender},
+            birthday     = #{birthday},
+            avatar       = #{avatar},
+            user_comment = #{userComment}
+        where id = #{id}
+    </update>
 </mapper>

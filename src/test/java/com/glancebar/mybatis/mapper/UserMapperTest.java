@@ -45,4 +45,31 @@ class UserMapperTest {
         Assertions.assertTrue(users.size() > 0);
         users.forEach(System.out::println);
     }
+
+    @Test
+    void findAllByQuery() {
+    }
+
+    @Test
+    void updateUserById() {
+        user.setId(10L);
+        user.setUsername("Ten");
+        int res = userMapper.updateUserById(user);
+        User entity = userMapper.findOneById(10L);
+        Assertions.assertEquals(user.getUsername(), entity.getUsername());
+    }
+
+    @Test
+    void testUpdateUserById() {
+        User entity = userMapper.findOneById(1L);
+        Assertions.assertNotNull(entity);
+    }
+
+
+    @Test
+    void deleteById() {
+        userMapper.deleteById(10L);
+        User entity = userMapper.findOneById(10L);
+        Assertions.assertEquals(entity.isDeleted(), true);
+    }
 }

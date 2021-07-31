@@ -16,6 +16,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 @SpringBootApplication
@@ -31,17 +32,20 @@ public class Application {
     @Bean
     CommandLineRunner demo(UserMapper userMapper) {
         List<User> users = new ArrayList<>();
+        Random random = new Random();
         for (int i = 0; i < 100; i++) {
+            boolean active = random.nextInt() % 2 == 0;
+            boolean deleted = random.nextInt() % 3 == 0;
             users.add(new User("https://staff-test.oss-cn-beijing.aliyuncs.com/avatar/avatar.png",
                     "User" + i,
                     "Nickname" + i,
                     GenderEnum.MALE,
                     new Date(System.currentTimeMillis()),
-                    "comment" + i,
+                    "Comment" + i,
                     new Timestamp(System.currentTimeMillis()),
                     new Timestamp(System.currentTimeMillis()),
-                    false,
-                    true));
+                    active,
+                    deleted));
         }
         users.forEach(userMapper::insertUser);
         userMapper.findAll().forEach(System.out::println);
